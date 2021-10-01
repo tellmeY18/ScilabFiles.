@@ -26,19 +26,17 @@ xlabel("$t$","fontsize", 4);
 
 ylabel("$x(t)$", "fontsize", 4);
 
-title("$x(t)=2cos(20\pi t) + 5cos(100 \pi t)$","fontsize", 4);
+title("$x(t)=2cos(20\pi t) + 5cos(100 \pi t)$", "fontsize", 4);
 
 scf(2);
 
 SAMPLING_FREQ = 200;
 
-NO_OF_SAMPLES=stop_Time*SAMPLING_FREQ;
+NO_OF_SAMPLES=stopTime*SAMPLING_FREQ;
 
 DISCRETE_DOMAIN=(0:1:NO_OF_SAMPLES);
 
-SAMPLED_WAVE = 2*cos((20*%pi*DISCRETE_DOMAIN)/SAMPLING_FREQ) + 5*cos((100*%pi DISCRETE_DO
-
-MAIN)/SAMPLING_FREQ);
+SAMPLED_WAVE = 2*cos((20*%pi*DISCRETE_DOMAIN)/SAMPLING_FREQ) + 5*cos((100*%pi*DISCRETE_DOMAIN)/SAMPLING_FREQ);
 
 plot2d3 (DISCRETE_DOMAIN, SAMPLED_WAVE);
 
@@ -52,7 +50,7 @@ title("$x(t)=2cos(20 \pi t) + 5cos(100 \pi t)$", "fontsize", 4);
 
 scf(3);
 
-[FFT] = abs(fft (SAMPLED WAVE));
+[FFT] = abs(fft (SAMPLED_WAVE));
 
 plot2d3(DISCRETE_DOMAIN, FFT);
 
@@ -70,13 +68,10 @@ FREQUENCY_DOMAIN=(SAMPLING_FREQ/NO_OF_SAMPLES)*DISCRETE_DOMAIN;
 
 plot2d3(FREQUENCY_DOMAIN,FFT);
 
-xgrid(12):
+xgrid(12);
 
 xlabel("$f(Hz)$", "fontsize", 4);
 
 ylabel("$|X[k]|$","fontsize", 4);
 
-title("$x(t)=2cos(20 \pi t)+ 5cos(100 \pi t$","fontsize",4);
-
-
-
+title("$x(t)=2cos(20 \pi t)+ 5cos(100 \pi t$", "fontsize", 4);
