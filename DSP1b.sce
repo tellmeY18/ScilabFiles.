@@ -1,49 +1,41 @@
-cif(4);
+end_time=0.125
+time=(0:0.00005:end_time);
+signal_1=2*cos(20*3.14*time)+5*cos(100*3.14*time);
 
-Fn 22200;
+scf(1)
+plot2d(time,signal_1);
+xgrid(12);
+xlabel("$t$","fontsize",5);
+ylabel("$x(t)$","fontsize",5);
+title("$x(t)=2cos(20\pi t) + 5 cos(100\pi t)$","fontsize",5);
 
-dt=1/Fn;
+scf(2);
+sampling_frequency=200;
+samples=end_time*sampling_frequency;
+n=(0:1:samples);
+signal_2=2*cos(20*3.14*n / sampling_frequency)+5*cos(100*3.14*n / sampling_frequency);
 
-stopTime 0.125;
+plot2d3(n,signal_2);
+xgrid(12);
+xlabel("$n$","fontsize",5);
+ylabel("$x[n]$","fontsize",5);
+title("$x(t)=2cos(20\pi t) + 5 cos(100\pi t)$","fontsize",5);
 
-TIME DOMAIN (0dt stopTime);
+scf(3);
+[FFT]=abs(fft(signal_2));
+plot2d3(n,FFT);
+xgrid(12);
+xlabel("$k$","fontsize",5);
+ylabel("$x[k]$","fontsize",5);
+title("$x(t)=2cos(20\pi t) + 5 cos(100\pi t)$","fontsize",5);
 
-ORIGINAL WAVE-2cos(2pi TIME DOMAIN) Scos(100%pi TIME DOMAIN);
-
-plot2d(TIME DOMAIN, ORIGINAL_WAVE): xgrid(12);
-
-ylabel(x()$", "fontsize", 4); title('Sx(1)-2cos (20 pit)+5cos(100 pin)S", "fontsize", 1);
-
-SAMPLING FREQ-200;
-
-NO OF SAMPLES-stopTime SAMPLING FREQ; DISCRETE DOMAIN (01 NO_OF_SAMPLES):
-
-SAMPLED WAVE cos((2pi DISCRETE DOMAIN) SAMPLING FREQ) + 5*cos[[100 %* DISCRETE DOMAIN) SAMPLING_FREQ);
-
-plut243 (DISCRETE DOMAIN, SAMPLED WAVE):
-
-grid(12);
-
-ylabell Ssto]S","fontsize", 1); title]"St-2cos[20 pit) Scos(100 pits", "fontsize", 4);
-
-[FFT] abs (SAMPLED WAVE)); plot2d3(DISCRETE_DOMAIN, FFT);
-
-grid[12);
-
-xlabel("SKS", "Tuntuize", 1);
-
-labell $X$", "foutsize", 4); titlelSt2cos[20 pit) Seos[100 pit)S","fontice", 4);
-
-FREQUENCY_DOMAIN - (SAMPLING FREQ/NO_OF_SAMPLES] DISCRETE_DOMAIN plot2d3 (FREQUENCY DOMAIN, FFT);
-
-xgrid(12)
-
-xlabel($t(H)$","fontsize", 1);
-
-vlabell'sk], "fontsize", 4); title(Sxt] 2cos(20 pit) cos(100 p115", "fontsize",+);
-
-
-
+scf(4);
+f=(sampling_frequency/samples)*n;
+plot2d3(f,FFT);
+xgrid(12);
+xlabel("$f(HZ)$","fontsize",5);
+ylabel("$x[k]$","fontsize",5);
+title("$x(t)=2cos(20\pi t) + 5 cos(100\pi t)$","fontsize",5);
 
 
 
